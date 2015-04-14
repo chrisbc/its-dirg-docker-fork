@@ -1,0 +1,8 @@
+non-web:
+    image: non-web
+  ports:
+    - "8080:8080"
+    - "8090:8090"
+    - "9000:9000"
+  environment:
+    - HOST_IP=127.0.0.1
