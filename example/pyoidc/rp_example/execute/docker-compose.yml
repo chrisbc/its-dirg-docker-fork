@@ -1,6 +1,0 @@
-rpexample:
-    image: pyoidc_rp
-    ports:
-     - "8666:8666"
-    volumes:
-     - ./settings:/opt/dirg/settings
