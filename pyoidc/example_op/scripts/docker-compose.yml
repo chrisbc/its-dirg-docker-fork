@@ -1,5 +1,5 @@
 rp:
-    image: pyoidc_op
+    image: pyoidc_example_op
     ports:
      - "8092:8092"
     volumes:

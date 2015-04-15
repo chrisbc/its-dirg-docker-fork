@@ -1,4 +1,4 @@
-repository="pyoidc_rp"
+repository="itsdirg/pyoidc_example_rp"
 
 # Check if running on mac
 if [ $(uname) = "Darwin" ]; then

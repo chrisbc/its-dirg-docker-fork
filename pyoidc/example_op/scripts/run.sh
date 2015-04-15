@@ -5,8 +5,8 @@
 #   DOCKERARGS="--entrypoint /bin/bash" bash -x ./run.sh
 #
 
-image=pyoidc_rp
-name=rp
+image=pyoidc_example_op
+name=op
 
 # Check if running on mac
 if [ $(uname) = "Darwin" ]; then
@@ -26,10 +26,10 @@ fi
 
 echo "HOST IP: " ${HOST_IP}
 
-${sudo} docker run \
+${sudo} docker run --rm=true \
     --name ${name} \
     -v $PWD/settings:/opt/dirg/settings \
-    -p 8666:8666 \
+    -p 8092:8092 \
     -e HOST_IP=${HOST_IP} \
     $DOCKERARGS \
     -i -t \
