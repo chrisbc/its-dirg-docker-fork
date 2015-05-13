@@ -5,7 +5,7 @@ MAINTAINER DIRG <dirg@its.umu.se>
 VOLUME ["/opt/dirg/settings"]
 
 ADD start.sh /start.sh
-ADD https://github.com/rohe/pyoidc/tarball/d8b1fbd /opt/dirg/src/code.tar.gz
+ADD https://github.com/rebeckag/pyoidc/tarball/simple_op_fix /opt/dirg/src/code.tar.gz
 
 RUN cd /opt/dirg/src && \
     mkdir pyoidc-master && \
@@ -13,5 +13,5 @@ RUN cd /opt/dirg/src && \
     tar xf  ../code.tar.gz --strip-components=1 && \
     pip install -r oidc_example/simple_op/requirements.txt
 
-
+EXPOSE 8092
 CMD ["/start.sh"]

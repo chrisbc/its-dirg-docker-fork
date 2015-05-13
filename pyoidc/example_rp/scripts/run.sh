@@ -7,6 +7,7 @@
 
 image=itsdirg/pyoidc_example_rp
 name=rp
+host_port=8666
 
 # Check if running on mac
 if [ $(uname) = "Darwin" ]; then
@@ -29,8 +30,8 @@ echo "HOST IP: " ${HOST_IP}
 ${sudo} docker run --rm=true \
     --name ${name} \
     -v $PWD/settings:/opt/dirg/settings \
-    -p 8666:8666 \
-    -e HOST_IP=${HOST_IP} \
+    -p ${host_port}:8666 \
+    -e BASE_URL="https://${HOST_IP}:${host_port}" \
     $DOCKERARGS \
     -i -t \
     ${image}

@@ -10,4 +10,4 @@ else
 	echo "Using settings.yaml from example file"
 fi
 
-python src/rp.py -b "https://${HOST_IP}" -p 8666 ${SETTINGS}
+python src/rp.py -b "${BASE_URL}" -p 8666 ${SETTINGS}
