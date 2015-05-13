@@ -1,14 +1,13 @@
 #!/bin/bash
 
-cd /opt/dirg/src/pyoidc-master/oidc_example/rp3/
+cd /opt/dirg/src/pyoidc-master/oidc_example/simple_rp/
 
-if [ -f /opt/dirg/settings/conf.py ]; then
-	cp /opt/dirg/settings/conf.py /opt/dirg/src/pyoidc-master/oidc_example/rp3/conf.py
-	echo "Using conf.py from volume"
+if [ -f /opt/dirg/settings/settings.yaml ]; then
+	SETTINGS=/opt/dirg/setting/settings.yaml
+	echo "Using settings.yaml from volume"
 else
-	# Use conf.py.example as rp config
-	mv conf.py.example conf.py
-	echo "Using conf.py from examlpe file"
+	SETTINGS=settings.yaml.example
+	echo "Using settings.yaml from example file"
 fi
 
-./rp3.py -b "https://${HOST_IP}" conf
+python src/rp.py -b "https://${HOST_IP}" -p 8666 ${SETTINGS}

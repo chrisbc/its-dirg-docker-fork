@@ -1,14 +1,13 @@
 #!/bin/bash
 
-cd /opt/dirg/src/pyoidc-master/oidc_example/op2/
+cd /opt/dirg/src/pyoidc-master/oidc_example/simple_op/
 
-if [ -f /opt/dirg/settings/config.py ]; then
-	cp /opt/dirg/settings/config.py /opt/dirg/src/pyoidc-master/oidc_example/op2/config.py
-	echo "Using config.py from volume"
+if [ -f /opt/dirg/settings/settings.yaml ]; then
+	SETTINGS=/opt/dirg/settings/settings.yaml
+	echo "Using settings.yaml from volume"
 else
-	# Use config.py.simple as op config
-	mv config.py.simple config.py
-	echo "Using conf.py from examlpe file"
+        SETTINGS=settings.yaml.example
+	echo "Using settings.yaml from example file"
 fi
 
-./server.py -b "https://${HOST_IP}" -p 8092 -d config
+python src/run.py -b "https://${HOST_IP}" -p 8092 -d ${SETTINGS}

@@ -5,7 +5,7 @@
 #   DOCKERARGS="--entrypoint /bin/bash" bash -x ./run.sh
 #
 
-image=pyoidc_example_rp
+image=itsdirg/pyoidc_example_rp
 name=rp
 
 # Check if running on mac
