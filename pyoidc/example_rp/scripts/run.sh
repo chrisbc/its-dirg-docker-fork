@@ -5,18 +5,19 @@
 #   DOCKERARGS="--entrypoint /bin/bash" bash -x ./run.sh
 #
 
-image=itsdirg/pyoidc_example_rp
+machine_name=oidc-demo
+image=dirg_example_rp
 name=rp
 host_port=8666
 
 # Check if running on mac
 if [ $(uname) = "Darwin" ]; then
     # Check so the boot2docker vm is running
-    if [ $(boot2docker status) != "running" ]; then
-        boot2docker start
+    if [ $(docker-machine status ${machine_name}) != "Running" ]; then
+        docker-machine start ${machine_name}
     fi
-    $(boot2docker shellinit)
-    HOST_IP=$(boot2docker ip)
+    #$(boot shellinit)
+    HOST_IP=$(docker-machine ip ${machine_name})
 else
     # if running on linux
     if [ $(id -u) -ne 0 ]; then

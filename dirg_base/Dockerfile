@@ -1,6 +1,6 @@
-FROM ubuntu:14.04
+FROM debian:jessie
 
-MAINTAINER DIRG <dirg@its.umu.se>
+#MAINTAINER DIRG <dirg@its.umu.se>
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends\

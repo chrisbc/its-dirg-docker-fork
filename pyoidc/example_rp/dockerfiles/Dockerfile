@@ -1,6 +1,6 @@
-FROM itsdirg/dirg_base
+FROM germination/dirg_base:latest
 
-MAINTAINER DIRG <dirg@its.umu.se>
+MAINTAINER FFXNZ <chris.chamberlain@fairfaxmedia.co.nz>
 
 VOLUME ["/opt/dirg/settings"]
 
